@@ -56,9 +56,9 @@ class MainActivity : AppCompatActivity() {
 
                 //run in network(IO) thread
                 CoroutineScope(Dispatchers.IO).launch {
-                    val jsonRes = httpApiService.getAllBooks()     //http req here
+                    val result = httpApiService.getAllBooks()     //http req here
 
-                    for (books in jsonRes) {
+                    for (books in result) {
                         if ((books.author == author) && (books.country == country)) {
                             booksList.add(books)
                         }
@@ -70,29 +70,29 @@ class MainActivity : AppCompatActivity() {
                         resultCount.text = "Results: $count"
 
                         if (count >= 3) {
-                            val name1 = booksList.get(0).title
-                            result1.text = "Result: $name1"
+                            val book1 = booksList.get(0).title
+                            result1.text = "Result: $book1"
 
-                            val name2 = booksList.get(1).title
-                            result2.text = "Result: $name2"
+                            val book2 = booksList.get(1).title
+                            result2.text = "Result: $book2"
 
-                            val name3 = booksList.get(2).title
-                            result3.text = "Result: $name3"
+                            val book3 = booksList.get(2).title
+                            result3.text = "Result: $book3"
                         }
 
                         if (count == 2) {
-                            val name1 = booksList.get(0).title
-                            result1.text = "Result: $name1"
+                            val book1 = booksList.get(0).title
+                            result1.text = "Result: $book1"
 
-                            val name2 = booksList.get(1).title
-                            result2.text = "Result: $name2"
+                            val book2 = booksList.get(1).title
+                            result2.text = "Result: $book2"
 
                             result3.text = ""
                         }
 
                         if (count == 1) {
-                            val name1 = booksList.get(0).title
-                            result1.text = "Result: $name1"
+                            val book1 = booksList.get(0).title
+                            result1.text = "Result: $book1"
 
                             result2.text = ""
                             result3.text = ""
